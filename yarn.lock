@@ -714,10 +714,10 @@ fastify-zod@^1.4.0:
     zod "^3.22.1"
     zod-to-json-schema "^3.21.4"
 
-fastify@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/fastify/-/fastify-5.4.0.tgz#82bf56e0bc36ba8dfb0bd372a0de8b62ccf3287c"
-  integrity sha512-I4dVlUe+WNQAhKSyv15w+dwUh2EPiEl4X2lGYMmNSgF83WzTMAPKGdWEv5tPsCQOb+SOZwz8Vlta2vF+OeDgRw==
+fastify@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/fastify/-/fastify-5.5.0.tgz#a1cf7bbfad7e4021f042e6f78942d3c3dd511a5d"
+  integrity sha512-ZWSWlzj3K/DcULCnCjEiC2zn2FBPdlZsSA/pnPa/dbUfLvxkD/Nqmb0XXMXLrWkeM4uQPUvjdJpwtXmTfriXqw==
   dependencies:
     "@fastify/ajv-compiler" "^4.0.0"
     "@fastify/error" "^4.0.0"
@@ -1422,7 +1422,7 @@ zod@^3.22.1:
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
 
-zod@^4.0.15:
-  version "4.0.15"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-4.0.15.tgz#198c13a792ea7d9509396a22457d86aa2b47b065"
-  integrity sha512-2IVHb9h4Mt6+UXkyMs0XbfICUh1eUrlJJAOupBHUhLRnKkruawyDddYRCs0Eizt900ntIMk9/4RksYl+FgSpcQ==
+zod@^4.0.17:
+  version "4.0.17"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.0.17.tgz#95931170715f73f7426c385c237b7477750d6c8d"
+  integrity sha512-1PHjlYRevNxxdy2JZ8JcNAw7rX8V9P1AKkP+x/xZfxB0K5FYfuV+Ug6P/6NVSR2jHQ+FzDDoDHS04nYUsOIyLQ==
