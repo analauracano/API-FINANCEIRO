@@ -5,6 +5,7 @@ import utc from 'dayjs/plugin/utc'
 import prisma from "../../config/prisma";
 import type { CategorySummary } from "../../types/category.types";
 import { TransactionType } from "@prisma/client";
+import type { TransactionSummary } from "../../types/transaction.types";
 
 dayjs.extend(utc)
 
@@ -69,9 +70,21 @@ export const getTransactionsSummary = async (
         }
       }
 
+      console.log(Array.from(groupedExpenses.values()))
+
+      const summary: TransactionSummary = {
+        totalExpenses,
+        totalIncomes,
+        totalBalance: Number((totalIncomes - totalExpenses).toFixed(2)),
+        expensesByCategory: Array.from(groupedExpenses.values()).map((entry) => ({
+            ...entry,
+            percentage: Number.parseFloat(((entry.amount / totalExpenses) * 100).toFixed(2)),
+        })).sort((a, b) => b.amount - a.amount),
+      };
+
       console.log({groupedExpenses, totalExpenses, totalIncomes})
 
-      reply.send(transactions);
+      reply.send(summary);
     } catch (error) {
       request.log.error('Erro ao trazer transações', error);
       reply.status(500).send({ error: 'Erro do servidor' });
