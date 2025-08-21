@@ -214,7 +214,7 @@
     ajv-formats "^3.0.1"
     fast-uri "^3.0.0"
 
-"@fastify/error@^4.0.0":
+"@fastify/error@^4.0.0", "@fastify/error@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@fastify/error/-/error-4.2.0.tgz#d40f46ba75f541fdcc4dc276b7308bbc8e8e6d7a"
   integrity sha512-RSo3sVDXfHskiBZKBPRgnQTtIqpi/7zhJOEmAxCiBcM7d0uwdGdxLlsCaLzGs8v8NnxIRlfG0N51p5yFaOentQ==
@@ -698,6 +698,13 @@ fastify-plugin@^4.0.0:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-4.5.1.tgz#44dc6a3cc2cce0988bc09e13f160120bbd91dbee"
   integrity sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==
+
+fastify-type-provider-zod@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/fastify-type-provider-zod/-/fastify-type-provider-zod-5.0.3.tgz#3a13b4870783e452e320c928641074ae4de20768"
+  integrity sha512-h+/SL9qWD+J5OS4UZ86YnbQA/gaeTqKXqUDbYFm3NZYAhjVVqALCp/UBHFXnH/lv+TpBFyv8uKQ/U1692j0N1g==
+  dependencies:
+    "@fastify/error" "^4.2.0"
 
 fastify-zod@^1.4.0:
   version "1.4.0"
