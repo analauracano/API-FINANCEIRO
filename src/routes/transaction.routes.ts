@@ -1,51 +1,60 @@
 import type { FastifyInstance } from "fastify";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
 import createTransaction from "../controllers/transactions/createTransaction.controller";
-import { createTransactionSchema, deleteTransactionSchema, getTransactionsSchema, getTransactionsSummarySchema } from "../schemas/transaction.schema";
+import {
+  createTransactionSchema,
+  deleteTransactionSchema,
+  getTransactionsSchema,
+  getTransactionsSummarySchema,
+} from "../schemas/transaction.schema";
 import { getTransactions } from "../controllers/transactions/getTransactions.controller";
 import { getTransactionsSummary } from "../controllers/transactions/getTransactionsSummary.controller";
 import { deleteTransaction } from "../controllers/transactions/deleteTransaction.controller";
 
 const transactionRoutes = async (fastify: FastifyInstance) => {
-// criação
+  // Configura Zod como validador e serializador
+  fastify.setValidatorCompiler(validatorCompiler);
+  fastify.setSerializerCompiler(serializerCompiler);
+
+  // Criação
   fastify.route({
     method: "POST",
     url: "/",
     schema: {
-      body: zodToJsonSchema(createTransactionSchema),
+      body: createTransactionSchema,
     },
     handler: createTransaction,
   });
 
-// Buscar com Filtros
+  // Buscar com filtros
   fastify.route({
-    method: 'GET',
-    url: '/',
+    method: "GET",
+    url: "/",
     schema: {
-      querystring: zodToJsonSchema(getTransactionsSchema)
+      querystring: getTransactionsSchema,
     },
     handler: getTransactions,
   });
 
-// Buscar o resumo / summary
-fastify.route({
-  method: 'GET',
-  url: '/summary',
-  schema: {
-    querystring: zodToJsonSchema(getTransactionsSummarySchema)
-  },
-  handler: getTransactionsSummary
-});
+  // Buscar o resumo / summary
+  fastify.route({
+    method: "GET",
+    url: "/summary",
+    schema: {
+      querystring: getTransactionsSummarySchema,
+    },
+    handler: getTransactionsSummary,
+  });
 
-// Deletar 
-fastify.route({
-  method: 'DELETE',
-  url: '/:id',
-  schema: {
-    params: zodToJsonSchema(deleteTransactionSchema),
-  },
-  handler: deleteTransaction,
-});
+  // Deletar
+  fastify.route({
+    method: "DELETE",
+    url: "/:id",
+    schema: {
+      params: deleteTransactionSchema,
+    },
+    handler: deleteTransaction,
+  });
 };
 
 export default transactionRoutes;
