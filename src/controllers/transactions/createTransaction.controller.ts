@@ -7,7 +7,7 @@ const createTransaction = async (
   request: FastifyRequest <{ Body: z.infer<typeof createTransactionSchema> }>,
   reply: FastifyReply
 ): Promise<void> => {
-  const userId = 'ANALAURA';
+  const userId = request.userId;
 
   if (!userId) {
     reply.status(401).send({ error: 'Usuário não autenticado' });

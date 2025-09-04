@@ -10,8 +10,12 @@ import {
 import { getTransactions } from "../controllers/transactions/getTransactions.controller";
 import { getTransactionsSummary } from "../controllers/transactions/getTransactionsSummary.controller";
 import { deleteTransaction } from "../controllers/transactions/deleteTransaction.controller";
+import { authMiddleware } from "../middlewares/auth.middlewares";
 
 const transactionRoutes = async (fastify: FastifyInstance) => {
+
+  fastify.addHook('preHandler', authMiddleware);
+
   // Configura Zod como validador e serializador
   fastify.setValidatorCompiler(validatorCompiler);
   fastify.setSerializerCompiler(serializerCompiler);
